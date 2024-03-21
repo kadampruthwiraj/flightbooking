@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "fa4daca9-a830-4f99-81bc-a352a4d19110",
+		"name": "bfsd-final-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "search-flight",
+			"item": [
+				{
+					"name": "/Search/allFlights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8581/Search/allFlights"
+					},
+					"response": []
+				},
+				{
+					"name": "Flight-Search/Search/allFlights API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/Search/allFlights",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"Search",
+								"allFlights"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save /Search/allFlights",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"2\",\n    \"departure_location\": \"Pune\",\n    \"arrival_location\": \"Osmanabad\",\n    \"flight\":[{\n    \"flight_id\": \"1\",\n    \"flight_number\": \"1\",\n    \"departure_time\": \"12:30\",\n    \"arrival_time\": \"12:30\"\n}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8504/Search/addFlights"
+					},
+					"response": []
+				},
+				{
+					"name": "save /Search/FlightData",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flight_id\": \"1\",\n    \"flight_number\": \"1\",\n    \"departure_time\": \"12:30\",\n    \"arrival_time\": \"12:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8504/Search/addFlightData"
+					},
+					"response": []
+				},
+				{
+					"name": "/find/{departure_location}/{arrival_location}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3000/Search/find/Pune/Osmanabad"
+					},
+					"response": []
+				},
+				{
+					"name": "/find/{departure_location}/{arrival_location} api gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8500/flightsearch/Search/find/Pune/Osmanabad"
+					},
+					"response": []
+				},
+				{
+					"name": "/findFlight/{flight_id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8081/Search/findFlight/2"
+					},
+					"response": []
+				},
+				{
+					"name": "/findFlight/{flight_id} api gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8500/flightsearch/Search/findFlight/1"
+					},
+					"response": []
+				},
+				{
+					"name": "/findFlight/{flight_id} api gateway Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flight_id\": \"1\",\n    \"flight_number\": \"1\",\n    \"departure_time\": \"12:30\",\n    \"arrival_time\": \"12:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8081/Search/updateFlightsData/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "security",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"pruthwiraj.kadam\",\n    \"password\":\"Abc@12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8502/api/auth/signin"
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"pruthwiraj.kadam1\",\n    \"email\":\"pruthwiraj.kadam@bajajfinserv.in1\",\n    \"password\":\"Abc@123451\",\n    \"roles\":[\"admin\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8502/api/auth/signup"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "AllFlights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/Admin/AllFlights"
+					},
+					"response": []
+				},
+				{
+					"name": "AllFlights Api Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8500/admin/Admin/AllFlights"
+					},
+					"response": []
+				},
+				{
+					"name": "/find/{departure_location}/{arrival_location}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3000/Admin/find/Pune/Osmanabad"
+					},
+					"response": []
+				},
+				{
+					"name": "save /Search/allFlights",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3\",\n    \"departure_location\": \"Pune\",\n    \"arrival_location\": \"Osmanabad\",\n    \"flight\":[{\n    \"flight_id\": \"3\",\n    \"flight_number\": \"3\",\n    \"departure_time\": \"12:30\",\n    \"arrival_time\": \"12:30\"\n}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/Admin/addFlights"
+					},
+					"response": []
+				},
+				{
+					"name": "/findFlight/{flight_id} api gateway Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flight_id\": \"3\",\n    \"flight_number\": \"4\",\n    \"departure_time\": \"13:30\",\n    \"arrival_time\": \"13:30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/Admin/updateFlightsData/3"
+					},
+					"response": [
+						{
+							"name": "/findFlight/{flight_id} api gateway Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"departure_location\": \"Pune\",\n    \"arrival_location\": \"Osmanabad\",\n    \"flight\": [\n        {\n            \"flight_id\": \"4\",\n            \"flight_number\": \"4\",\n            \"departure_time\": \"13:30\",\n            \"arrival_time\": \"13:30\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:3000/Admin/updateFlightsData/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Mar 2024 11:46:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Flight: 0updated successfully "
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "flight-booking",
+			"item": [
+				{
+					"name": "BookFlight/{mailId}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"booking_id\":1,\n    \"departure_date\":\"2024-05-27\",\n    \"booking_date\":\"2024-05-27\",\n   \"FlightData\": {\n    \"flight_id\": \"3\",\n    \"flight_number\": \"4\",\n    \"departure_time\": \"13:30\",\n    \"arrival_time\": \"13:30\"\n},\n\"passenger\":[{\n    \"passenger_id\":1,\n    \"passenger_name\":\"pruthwi\",\n    \"passenger_age\":26,\n    \"passenger_seat\":1,\n    \"amount\":1000\n}],\n\"total_amount\":1000,\n\"otp\":123456,\n\"booking_cancelled\":false,\n\"checked_in\":false,\n\"payment_completed\":true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8082/FlightBooking/BookFlight/pruthwiraj.kadam@bajajfinserv.in"
+					},
+					"response": []
+				},
+				{
+					"name": "/BookedFlight/{booking_id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"booking_id\":1,\n    \"departure_date\":\"2024-05-27\",\n    \"booking_date\":\"2024-05-27\",\n   \"FlightData\": {\n    \"flight_id\": \"3\",\n    \"flight_number\": \"4\",\n    \"departure_time\": \"13:30\",\n    \"arrival_time\": \"13:30\"\n},\n\"passenger\":[{\n    \"passenger_id\":1,\n    \"passenger_name\":\"pruthwi\",\n    \"passenger_age\":26,\n    \"passenger_seat\":1,\n    \"amount\":1000\n}],\n\"total_amount\":1000,\n\"otp\":123456,\n\"booking_cancelled\":false,\n\"checked_in\":false,\n\"payment_completed\":true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8082/FlightBooking/BookedFlight/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "checkin",
+			"item": [
+				{
+					"name": "/BookedFlight/{booking_id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"booking_id\":1,\n    \"departure_date\":\"2024-05-27\",\n    \"booking_date\":\"2024-05-27\",\n   \"FlightData\": {\n    \"flight_id\": \"3\",\n    \"flight_number\": \"4\",\n    \"departure_time\": \"13:30\",\n    \"arrival_time\": \"13:30\"\n},\n\"passenger\":[{\n    \"passenger_id\":1,\n    \"passenger_name\":\"pruthwi\",\n    \"passenger_age\":26,\n    \"passenger_seat\":1,\n    \"amount\":1000\n}],\n\"total_amount\":1000,\n\"otp\":123456,\n\"booking_cancelled\":false,\n\"checked_in\":false,\n\"payment_completed\":true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8084/attendee/BookedFlight//1"
+					},
+					"response": []
+				},
+				{
+					"name": "/booking/{booking_id}/{mailId}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"booking_id\":1,\n    \"departure_date\":\"2024-05-27\",\n    \"booking_date\":\"2024-05-27\",\n   \"FlightData\": {\n    \"flight_id\": \"3\",\n    \"flight_number\": \"4\",\n    \"departure_time\": \"13:30\",\n    \"arrival_time\": \"13:30\"\n},\n\"passenger\":[{\n    \"passenger_id\":1,\n    \"passenger_name\":\"pruthwi\",\n    \"passenger_age\":26,\n    \"passenger_seat\":1,\n    \"amount\":1000\n}],\n\"total_amount\":1000,\n\"otp\":123456,\n\"booking_cancelled\":false,\n\"checked_in\":false,\n\"payment_completed\":true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8084/attendee/booking/1/pruthwiraj.kadam@bajajfinserv.in"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
