@@ -40,7 +40,13 @@ public class CheckInContoller {
 	restTemplate.put(env.getProperty("base_url_flightbooking")+"/FlightBooking/booking/"+pnr+"/"+mailId, booking);
 	/* return"Checked In Successfully:"+pnr ; */
 	 
+	try {
 	return emailService.sendEmail(booking,mailId);
+	}catch(Exception e)
+	{
+		e.printStackTrace();
+		return "Success";
+	}
 		
 	}
 	
