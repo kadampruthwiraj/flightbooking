@@ -149,5 +149,14 @@ public class bookingController {
 		}
 		return tot_sum;
 	}
+	
+	@GetMapping("/BookFlight/{passenger_name}")
+	public List<Booking>  bookFlight(@PathVariable("passenger_name") String passengerName) {
+
+		
+		return book_repo.findByPassenger_name(passengerName.toLowerCase());
+		
+		
+	}
 
 }

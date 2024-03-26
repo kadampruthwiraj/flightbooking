@@ -14,5 +14,7 @@ public interface BookingRepository extends MongoRepository<Booking,Long> {
 	  @Query("{'departue_date' : :#{#departure_date}}") 
 	  List<Booking> findByDate(@Param("departure_date") Date departure_date);
 	  
+	  @Query("{'passenger.passenger_name':{'$regex' : ?0, '$options' : 'i'}}") 
+	  List<Booking> findByPassenger_name(String passenger_name);
 	 
 }
